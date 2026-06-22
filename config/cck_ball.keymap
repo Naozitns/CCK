@@ -149,7 +149,7 @@
 
         num_layers {
             bindings = <
-&kp GRAVE  &kp N1          &kp N2        &kp N3  &kp N4  &kp N5   &kp N7        &kp N8        &kp N9        &kp SLASH     &pw1  &kp DEL
+&kp GRAVE  &kp N1          &kp N2        &kp N3  &kp N4  &kp N5   &kp N7        &kp N8        &kp N9        &kp SLASH     &pw1  &trans
 &trans     &kp F1          &kp F2        &kp F3  &kp F4  &kp F5   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp ASTERISK  &pw2  &trans
 &trans     &kp F6          &kp F7        &kp F8  &kp F9  &kp F10  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &pw3  &trans
 &trans     &kp KP_NUMLOCK  &kp CAPSLOCK  &trans  &trans  &trans   &trans        &kp N0        &kp KP_DOT    &kp PLUS      &pw4  &sc
@@ -190,7 +190,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,
+                // 编码器1：上下滚动,，,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
