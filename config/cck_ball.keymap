@@ -26,6 +26,10 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+&mt {
+    bindings = <&mkp>, <&mkp>;
+};
+
 / {
     // 上下滚动编码器行为
 
@@ -86,6 +90,21 @@
             bindings = <&kp ESC>;
             key-positions = <0 1>;
         };
+
+        juhao {
+            bindings = <&kp PERIOD>;
+            key-positions = <32 33>;
+        };
+
+        fenhao {
+            bindings = <&kp SEMICOLON>;
+            key-positions = <33 22>;
+        };
+
+        bolang {
+            bindings = <&kp GRAVE>;
+            key-positions = <32 22>;
+        };
     };
 
     macros {
@@ -138,10 +157,10 @@
 
         QWERTY {
             bindings = <
-&mt ESCAPE TAB    &kp Q  &kp W  &kp E         &kp R      &kp T        &kp Y     &kp U      &kp I          &kp O                &kp P                   &kp BACKSPACE
-&kp LEFT_SHIFT    &kp A  &kp S  &kp D         &kp F      &kp G        &kp H     &kp J      &kp K          &kp L                &mt GRAVE SINGLE_QUOTE  &kp MINUS
-&kp LEFT_CONTROL  &kp Z  &kp X  &kp C         &kp V      &kp B        &kp N     &kp M      &mt DOT COMMA  &mt SEMICOLON SLASH  &kp UP                  &kp EQUAL
-&mo 3             &mo 2  &mo 1  &kp LEFT_ALT  &kp SPACE  &lt 1 ENTER  &mkp MB1  &kp SPACE  &lt 3 DEL      &kp LEFT_ARROW       &kp DOWN_ARROW          &kp RIGHT_ARROW
+&kp TAB           &kp Q  &kp W  &kp E         &kp R      &kp T        &kp Y     &kp U      &kp I      &kp O           &kp P             &kp BACKSPACE
+&kp LEFT_SHIFT    &kp A  &kp S  &kp D         &kp F      &kp G        &kp H     &kp J      &kp K      &kp L           &kp SINGLE_QUOTE  &kp MINUS
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C         &kp V      &kp B        &kp N     &kp M      &kp COMMA  &kp SLASH       &kp UP            &kp EQUAL
+&mo 3             &mo 2  &mo 1  &kp LEFT_ALT  &kp SPACE  &lt 1 ENTER  &mkp MB1  &kp SPACE  &lt 3 DEL  &kp LEFT_ARROW  &kp DOWN_ARROW    &kp RIGHT_ARROW
             >;
 
             sensor-bindings =
@@ -149,15 +168,17 @@
                 <&scroll_vertical_encoder>;
         };
 
-        num_layers {
+        layer_5 {
             bindings = <
-&kp GRAVE  &kp N1          &kp N2        &kp N3  &kp N4  &kp N5   &kp N7        &kp N8        &kp N9        &kp SLASH     &pw1  &trans
-&trans     &kp F1          &kp F2        &kp F3  &kp F4  &kp F5   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp ASTERISK  &pw2  &trans
-&trans     &kp F6          &kp F7        &kp F8  &kp F9  &kp F10  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &pw3  &trans
-&trans     &kp KP_NUMLOCK  &kp CAPSLOCK  &trans  &trans  &trans   &trans        &kp N0        &kp KP_DOT    &kp PLUS      &pw4  &sc
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &bt BT_CLR    &bt BT_CLR_ALL  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         symbo_layers {
@@ -173,10 +194,10 @@
 
         settings-layers {
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &bt BT_CLR    &bt BT_CLR_ALL  &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &kp N1  &kp N2  &kp N3  &kp N4    &kp N5          &kp N7  &kp N8  &kp N9      &kp FSLH   &pw1  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4    &kp F5          &kp N4  &kp N5  &kp N6      &kp STAR   &pw2  &trans
+&trans  &trans  &trans  &trans  &kp CAPS  &kp KP_NUMLOCK  &kp N1  &kp N2  &kp N3      &kp MINUS  &pw3  &trans
+&trans  &trans  &trans  &trans  &trans    &trans          &trans  &kp N0  &kp KP_DOT  &kp PLUS   &pw4  &sc
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -192,7 +213,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,,,,
+                // 编码器1：上下滚动,，,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
