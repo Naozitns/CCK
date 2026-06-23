@@ -26,10 +26,6 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
-&mt {
-    bindings = <&mkp>, <&mkp>;
-};
-
 / {
     // 上下滚动编码器行为
 
@@ -91,19 +87,24 @@
             key-positions = <0 1>;
         };
 
-        juhao {
-            bindings = <&kp PERIOD>;
-            key-positions = <32 33>;
+        shunshi {
+            bindings = <&mkp MB2>;
+            key-positions = <42 43>;
         };
 
-        fenhao {
-            bindings = <&kp SEMICOLON>;
-            key-positions = <33 22>;
+        enter {
+            bindings = <&mkp MB1>;
+            key-positions = <40 41>;
         };
 
-        bolang {
-            bindings = <&kp GRAVE>;
-            key-positions = <32 22>;
+        reset {
+            bindings = <&tog 0>;
+            key-positions = <36 37 38>;
+        };
+
+        lanya {
+            bindings = <&mo 1>;
+            key-positions = <36 47>;
         };
     };
 
@@ -157,10 +158,10 @@
 
         QWERTY {
             bindings = <
-&kp TAB           &kp Q  &kp W  &kp E         &kp R      &kp T        &kp Y     &kp U      &kp I      &kp O           &kp P             &kp BACKSPACE
-&kp LEFT_SHIFT    &kp A  &kp S  &kp D         &kp F      &kp G        &kp H     &kp J      &kp K      &kp L           &kp SINGLE_QUOTE  &kp MINUS
-&kp LEFT_CONTROL  &kp Z  &kp X  &kp C         &kp V      &kp B        &kp N     &kp M      &kp COMMA  &kp SLASH       &kp UP            &kp EQUAL
-&mo 3             &mo 2  &mo 1  &kp LEFT_ALT  &kp SPACE  &lt 1 ENTER  &mkp MB1  &kp SPACE  &lt 3 DEL  &kp LEFT_ARROW  &kp DOWN_ARROW    &kp RIGHT_ARROW
+&kp TAB           &kp Q  &kp W  &kp E         &kp R        &kp T     &kp Y     &kp U      &kp I             &kp O                &kp P                   &kp BACKSPACE
+&kp LEFT_SHIFT    &kp A  &kp S  &kp D         &kp F        &kp G     &kp H     &kp J      &kp K             &kp L                &mt GRAVE SINGLE_QUOTE  &kp MINUS
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C         &kp V        &kp B     &kp N     &kp M      &mt PERIOD COMMA  &mt SEMICOLON SLASH  &kp UP                  &kp EQUAL
+&mo 3             &mo 2  &mo 1  &kp LEFT_ALT  &lt 3 ENTER  &mkp MB2  &mkp MB1  &kp SPACE  &lt 3 DEL         &kp LEFT_ARROW       &kp DOWN_ARROW          &kp RIGHT_ARROW
             >;
 
             sensor-bindings =
@@ -213,7 +214,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,,,,,
+                // 编码器1：上下滚动,，,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
