@@ -121,6 +121,11 @@
             bindings = <&mo 3>;
             key-positions = <14 15 16>;
         };
+
+        input {
+            bindings = <&inputpw>;
+            key-positions = <11 23>;
+        };
     };
 
     macros {
@@ -165,6 +170,17 @@
                 <&kp LC(C) &kp LA(TAB)>;
 
             label = "SC";
+        };
+
+        inputpw: inputpw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp S &kp J &kp Z &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "INPUTPW";
         };
     };
 
@@ -229,7 +245,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,,,,,,,,
+                // 编码器1：上下滚动,，,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
