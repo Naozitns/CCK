@@ -188,14 +188,18 @@
             #binding-cells = <0>;
             bindings =
                 <&kp LC(C) &kp DOWN &kp LA(TAB)>,
-                <&macro_wait_time 200>,
+                <&macro_wait_time 350>,
                 <&mkp MB1 &kp LC(A) &kp LC(V)>,
-                <&macro_wait_time 100>,
+                <&macro_wait_time 350>,
                 <&kp TAB &kp TAB &kp TAB &kp TAB &kp SPACE>,
                 <&macro_wait_time 200>,
                 <&kp TAB &kp TAB &kp SPACE>,
                 <&macro_wait_time 5000>,
-                <&kp LC(V) &kp ENTER>;
+                <&kp LC(V)>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>,
+                <&macro_wait_time 100>,
+                <&kp LA(TAB)>;
 
             label = "YIBAOZHENGMING";
         };
@@ -262,7 +266,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,,,,,,,,,,
+                // 编码器1：上下滚动,，,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
