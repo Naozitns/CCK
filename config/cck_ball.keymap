@@ -109,17 +109,17 @@
 
         mb {
             bindings = <&mkp MB1>;
-            key-positions = <16 15>;
+            key-positions = <17 4>;
         };
 
         mb2 {
             bindings = <&mkp MB2>;
-            key-positions = <14 15>;
+            key-positions = <4 15>;
         };
 
         ml {
             bindings = <&mo 3>;
-            key-positions = <14 15 16>;
+            key-positions = <15 4 17>;
         };
 
         input {
@@ -296,7 +296,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,，,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
