@@ -13,9 +13,12 @@
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
-    acceleration-exponent = <0>;      // 0
-    time-to-max-speed-ms = <300>;       // 300
+    acceleration-exponent = <5>;      // 0
+    time-to-max-speed-ms = <200>;       // 300
     delay-ms = <0>;                   // 0
+    y-input-code = <INPUT_REL_WHEEL>;
+    x-input-code = <INPUT_REL_HWHEEL>;
+    trigger-period-ms = <0>;
 };
 
 &mmv {
@@ -52,7 +55,7 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-        tap-ms = <100>;
+        tap-ms = <50>;
         label = "NEW_BEHAVIOR";
     };
 
@@ -94,7 +97,7 @@
 
         enter {
             bindings = <&mkp MB2>;
-            key-positions = <40 41>;
+            key-positions = <41 16>;
         };
 
         reset {
@@ -109,17 +112,17 @@
 
         mb {
             bindings = <&mkp MB1>;
-            key-positions = <16 3>;
+            key-positions = <16 14>;
         };
 
         mb2 {
             bindings = <&mkp MB2>;
-            key-positions = <14 3>;
+            key-positions = <14 15>;
         };
 
         ml {
             bindings = <&mo 3>;
-            key-positions = <14 3 16>;
+            key-positions = <14 16 15>;
         };
 
         input {
@@ -246,9 +249,7 @@
 &mo 3             &pzsb  &pz2   &kp LEFT_ALT  &lt 3 ENTER  &mkp MB1  &mkp MB1  &kp SPACE  &lt 3 DEL         &kp LEFT_ARROW       &kp DOWN_ARROW          &kp RIGHT_ARROW
             >;
 
-            sensor-bindings =
-                <&scroll_horizontal_encoder>,
-                <&scroll_vertical_encoder>;
+            sensor-bindings = <&scroll_horizontal_encoder>, <&new_behavior>;
         };
 
         layer_5 {
@@ -296,7 +297,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,，,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
