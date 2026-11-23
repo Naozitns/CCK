@@ -64,12 +64,12 @@
 
         line {
             bindings = <&kp LS(LC(SPACE))>;
-            key-positions = <3 4>;
+            key-positions = <4 5>;
         };
 
         lie {
             bindings = <&kp LA(LC(SPACE))>;
-            key-positions = <3 16>;
+            key-positions = <4 17>;
         };
 
         sz {
@@ -109,22 +109,22 @@
 
         mb {
             bindings = <&mkp MB1>;
-            key-positions = <17 4>;
+            key-positions = <16 3>;
         };
 
         mb2 {
             bindings = <&mkp MB2>;
-            key-positions = <4 15>;
+            key-positions = <14 3>;
         };
 
         ml {
             bindings = <&mo 3>;
-            key-positions = <15 4 17>;
+            key-positions = <14 3 16>;
         };
 
         input {
             bindings = <&inputpw>;
-            key-positions = <11 23>;
+            key-positions = <11 23 35>;
         };
     };
 
@@ -247,7 +247,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp MINUS EQUAL>,
+                <&scroll_horizontal_encoder>,
                 <&scroll_vertical_encoder>;
         };
 
@@ -296,7 +296,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,，,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,，,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
